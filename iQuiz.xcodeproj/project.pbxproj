@@ -16,6 +16,11 @@
 		4619B7E61EB9513400B056AF /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 4619B7E31EB9513400B056AF /* hero.png */; };
 		4619B7E71EB9513400B056AF /* math.png in Resources */ = {isa = PBXBuildFile; fileRef = 4619B7E41EB9513400B056AF /* math.png */; };
 		4619B7E81EB9513400B056AF /* science.png in Resources */ = {isa = PBXBuildFile; fileRef = 4619B7E51EB9513400B056AF /* science.png */; };
+		4652D39A1EC27EB500ABE8FB /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652D3991EC27EB500ABE8FB /* AnswerViewController.swift */; };
+		4652D39C1EC27F8D00ABE8FB /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652D39B1EC27F8D00ABE8FB /* FinishedViewController.swift */; };
+		4652D39E1EC27FA000ABE8FB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652D39D1EC27FA000ABE8FB /* QuestionViewController.swift */; };
+		4652D3A01EC28C7900ABE8FB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652D39F1EC28C7900ABE8FB /* Question.swift */; };
+		4652D3A21EC28CB400ABE8FB /* QuizType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652D3A11EC28CB400ABE8FB /* QuizType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		4619B7E31EB9513400B056AF /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		4619B7E41EB9513400B056AF /* math.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = math.png; sourceTree = "<group>"; };
 		4619B7E51EB9513400B056AF /* science.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = science.png; sourceTree = "<group>"; };
+		4652D3991EC27EB500ABE8FB /* AnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		4652D39B1EC27F8D00ABE8FB /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		4652D39D1EC27FA000ABE8FB /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		4652D39F1EC28C7900ABE8FB /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4652D3A11EC28CB400ABE8FB /* QuizType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,11 @@
 				4619B7CB1EB933D800B056AF /* AppDelegate.swift */,
 				4619B7CD1EB933D800B056AF /* ViewController.swift */,
 				4619B7CF1EB933D800B056AF /* Main.storyboard */,
+				4652D39F1EC28C7900ABE8FB /* Question.swift */,
+				4652D3A11EC28CB400ABE8FB /* QuizType.swift */,
+				4652D3991EC27EB500ABE8FB /* AnswerViewController.swift */,
+				4652D39B1EC27F8D00ABE8FB /* FinishedViewController.swift */,
+				4652D39D1EC27FA000ABE8FB /* QuestionViewController.swift */,
 				4619B7DD1EB9423B00B056AF /* ViewControllerTableViewCell.swift */,
 				4619B7D21EB933D800B056AF /* Assets.xcassets */,
 				4619B7D41EB933D800B056AF /* LaunchScreen.storyboard */,
@@ -152,9 +167,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4652D39A1EC27EB500ABE8FB /* AnswerViewController.swift in Sources */,
 				4619B7CE1EB933D800B056AF /* ViewController.swift in Sources */,
+				4652D39E1EC27FA000ABE8FB /* QuestionViewController.swift in Sources */,
 				4619B7CC1EB933D800B056AF /* AppDelegate.swift in Sources */,
+				4652D3A21EC28CB400ABE8FB /* QuizType.swift in Sources */,
 				4619B7DE1EB9423B00B056AF /* ViewControllerTableViewCell.swift in Sources */,
+				4652D3A01EC28C7900ABE8FB /* Question.swift in Sources */,
+				4652D39C1EC27F8D00ABE8FB /* FinishedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
