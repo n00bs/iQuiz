@@ -15,7 +15,7 @@ class FinishedViewController: UIViewController {
     var userSelectedAnswers: [Int] = []
     
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var DescriptionLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,31 +25,19 @@ class FinishedViewController: UIViewController {
                 correct += 1
             }
         }
-        scoreLabel.text = "Score = \(correct) out of  \(currentQuiz.questions.count)"
+        scoreLabel.text = "Score = \(correct) out of \(currentQuiz.questions.count)"
         if (correct == currentQuiz.questions.count) {
-            DescriptionLabel.text = "Amazing! You aced the quiz!"
+            descLabel.text = "Amazing! You aced the quiz!"
         } else {
-            DescriptionLabel.text = "Good attempt"
+            descLabel.text = "Good attempt"
         }
+        scoreLabel.sizeToFit()
+        descLabel.sizeToFit()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func nextButton(_ sender: Any) {
-        performSegue(withIdentifier: "mainVC", sender: nil)
-    }
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "mainVC") {
-            let viewController = segue.destination as! ViewController
-            viewController.allQuizzes = self.allQuizzes
-        }
-        
-    }
+   
 }

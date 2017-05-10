@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var allQuizzes: [QuizType] = []
     
@@ -16,43 +16,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     let objects = [
         ["title": "Mathematics",
          "desc": "Problems faced when x meets y",
-         "icon": "math.png",
-         "questions": [[
-            "text":"Who is Iron Man?",
-            "answer":"1",
-            "answers": [
-                "Tony Stark",
-                "Obadiah Stane",
-                "A rock hit by Megadeth",
-                "Nobody knows"
-            ]
-        ]]],
+         "icon": "math.png"],
         ["title": "Marvel Super Heroes",
          "desc": "It's clobberin' time!",
-         "icon": "hero.png",
-         "questions": [[
-            "text":"Who is Iron Man?",
-            "answer":"1",
-            "answers": [
-                "Tony Stark",
-                "Obadiah Stane",
-                "A rock hit by Megadeth",
-                "Nobody knows"
-            ]
-        ]]],
+         "icon": "hero.png"],
         ["title": "Science",
          "desc": "Chemical X",
-         "icon": "science.png",
-         "questions": [[
-            "text":"Who is Iron Man?",
-            "answer":"1",
-            "answers": [
-                "Tony Stark",
-                "Obadiah Stane",
-                "A rock hit by Megadeth",
-                "Nobody knows"
-            ]
-        ]]]
+         "icon": "science.png"]
     ]
     
     override func viewDidLoad() {
@@ -72,22 +42,24 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mainCell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! ViewControllerTableViewCell
-        mainCell.icon.image = UIImage(named: objects[indexPath.row]["icon"] as! String!)
-        mainCell.title.text = objects[indexPath.row]["title"] as! String!
+        mainCell.icon.image = UIImage(named: objects[indexPath.row]["icon"]!)
+        mainCell.title.text = objects[indexPath.row]["title"]!
         mainCell.title.sizeToFit()
-        mainCell.desc.text = objects[indexPath.row]["desc"] as! String!
+        mainCell.desc.text = objects[indexPath.row]["desc"]!
         mainCell.desc.sizeToFit()
         return mainCell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print("yo")
         let questionController = self.storyboard?.instantiateViewController(withIdentifier: "QuestionVC") as! QuestionViewController
         questionController.allQuizzes = self.allQuizzes
         questionController.currentQuiz = allQuizzes[(tableView.indexPathForSelectedRow!.row)]
         self.present(questionController, animated: true, completion: nil)
         
     }
+
     
     @IBAction func settingsAlertButton(_ sender: Any) {
         let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: UIAlertControllerStyle.alert)
@@ -101,18 +73,15 @@ class ViewController: UIViewController, UITableViewDataSource {
     func constructQuizesFromData() {
         var allQuiz = [QuizType]()
         for eachQuizData in self.objects {
-            print(eachQuizData)
             let newQuiz : QuizType = QuizType()
-            newQuiz.quizName = eachQuizData["title"] as! String!
-            newQuiz.quizDesc = eachQuizData["desc"] as! String!
-            /*for question in eachQuizData["questions"]! {
-                let newQuestion : Question = Question(question: question["text"].stringValue, answers: question["answers"].arrayValue, correctAnswer: question["answer"].intValue)
-                newQuiz.questions.append(newQuestion)
-                print(question)
-            }*/
+            newQuiz.quizName = eachQuizData["title"]!
+            newQuiz.quizDesc = eachQuizData["desc"]!
+            let newQuestion : Question = Question(question: "Whats up?", answers: ["Life", "Life2", "Life3", "Life4"], correctAnswer: 1)
+            newQuiz.questions.append(newQuestion)
             allQuiz.append(newQuiz)
         }
         self.allQuizzes = allQuiz
+        
     }
     
 }
