@@ -32,7 +32,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.fetchDataFromURL()
+        if (self.fetchedJSON != nil) {
+            self.constructQuizesFromFetchedJSON()
+        } else {
+            self.fetchDataFromURL()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +85,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.dataUrl = (alert.textFields?.first?.text!)!
             }
             self.fetchDataFromURL()
-            self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(processURL)
         alert.addAction(defaults)
@@ -93,6 +96,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error!)
+                self.fetchedJSON = nil
+                self.constructQuizesFromData()
             } else {
                 if let content = data {
                     do {
@@ -142,8 +147,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             allQuiz.append(newQuiz)
         }
         self.allQuizzes = allQuiz
-        
+        self.dataTable.reloadData()
     }
     
+    @IBAction func refreshData(_ sender: Any) {
+        self.fetchDataFromURL()
+    }
 }
 
