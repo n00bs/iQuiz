@@ -103,6 +103,9 @@
                             <constraint firstItem="Acc-l2-pap" firstAttribute="top" secondItem="ouX-Oh-D6q" secondAttribute="bottom" id="zLN-BH-dVH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataTable" destination="Acc-l2-pap" id="eZO-ZN-uhW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
